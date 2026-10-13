@@ -1,0 +1,42 @@
+export const fundMeAbi = [
+  { inputs: [{ internalType: "address", name: "priceFeed", type: "address" }], stateMutability: "nonpayable", type: "constructor" },
+  { inputs: [], name: "FundMe__CallFailed", type: "error" },
+  { inputs: [], name: "FundMe__NotEnoughETH", type: "error" },
+  { inputs: [], name: "FundMe__NotOwner", type: "error" },
+  { anonymous: false, inputs: [{ indexed: true, internalType: "address", name: "funder", type: "address" }, { indexed: false, internalType: "uint256", name: "amount", type: "uint256" }], name: "Funded", type: "event" },
+  { anonymous: false, inputs: [{ indexed: true, internalType: "address", name: "owner", type: "address" }, { indexed: false, internalType: "uint256", name: "amount", type: "uint256" }], name: "Withdrawn", type: "event" },
+  { stateMutability: "payable", type: "fallback" },
+  { inputs: [], name: "MINIMUM_USD", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "cheaperWithdraw", outputs: [], stateMutability: "nonpayable", type: "function" },
+  { inputs: [], name: "fund", outputs: [], stateMutability: "payable", type: "function" },
+  { inputs: [{ internalType: "address", name: "fundingAddress", type: "address" }], name: "getAddressToAmountFunded", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getBalance", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [{ internalType: "uint256", name: "ethAmount", type: "uint256" }], name: "getConversionRate", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getCurrentPrice", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [{ internalType: "uint256", name: "index", type: "uint256" }], name: "getFunder", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getMinimumUSD", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "pure", type: "function" },
+  { inputs: [], name: "getNumberOfFunders", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getOwner", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getPriceFeed", outputs: [{ internalType: "contract AggregatorV3Interface", name: "", type: "address" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "getVersion", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "withdraw", outputs: [], stateMutability: "nonpayable", type: "function" },
+  { stateMutability: "payable", type: "receive" },
+] as const;
+
+export const aggregatorAbi = [
+  {
+    inputs: [],
+    name: "latestRoundData",
+    outputs: [
+      { name: "roundId", type: "uint80" },
+      { name: "answer", type: "int256" },
+      { name: "startedAt", type: "uint256" },
+      { name: "updatedAt", type: "uint256" },
+      { name: "answeredInRound", type: "uint80" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  { inputs: [], name: "decimals", outputs: [{ name: "", type: "uint8" }], stateMutability: "view", type: "function" },
+  { inputs: [], name: "description", outputs: [{ name: "", type: "string" }], stateMutability: "view", type: "function" },
+] as const;
